@@ -22,15 +22,7 @@ public class StartFragment extends Fragment
     {
         super.onViewCreated(view, savedInstanceState);
 
-        view.findViewById(R.id.button_StartFragment_to_MensaplanFragment).setOnClickListener(new View.OnClickListener()
-        {
-        @Override
-        public void onClick(View view)
-        {
-            NavHostFragment.findNavController(StartFragment.this)
-                    .navigate(R.id.action_StartFragment_to_MensaplanFragment);
-        }
-    });
+
         view.findViewById(R.id.button_StartFragment_to_KalenderFragment).setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -40,14 +32,6 @@ public class StartFragment extends Fragment
                         .navigate(R.id.action_StartFragment_to_KalenderFragment);
             }
         });
-        view.findViewById(R.id.button_StartFragment_to_StundeplanFragment).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                NavHostFragment.findNavController(StartFragment.this)
-                        .navigate(R.id.action_StartFragment_to_StundenplanFragment);
-            }
-        });
+
     }
 }

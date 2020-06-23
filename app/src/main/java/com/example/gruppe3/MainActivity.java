@@ -3,6 +3,7 @@ package com.example.gruppe3;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -16,6 +17,8 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainActivity extends AppCompatActivity
 {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -23,70 +26,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu)
-    {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
-        return true;
+    public void openMensa(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.akafoe.de/gastronomie/speiseplaene-der-mensen/wh-bocholt/"));
+        startActivity(browserIntent);
     }
-
-    public boolean onOptionsItemSelected(MenuItem item)
-    {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-
-        findViewById(R.id.link1).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                clicked_btn("http://www.w-hs.de");
-            }
-        });
-
-        findViewById(R.id.link2).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                clicked_btn("http://www.google.de");
-            }
-        });
-
-
-        return true;
-    }
-    public void clicked_btn(String url)
-    {
-        Intent intent=new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        intent.setPackage("com.android.chrome");
-        startActivity(intent);
-    //});
-        //int id = item.getItemId();
-
-
-        //noinspection SimplifiableIfStatement
-        //if (id == R.id.action_settings) {
-        //    return true;
-        //}
-
-        //return super.onOptionsItemSelected(item);
+    public void openStundenplan(View view) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://splan.w-hs.de/splan/mobile?lan=de&acc=false&act=tt&sel=pg&pu=55&og=24&pg=WINFO%202&sd=true&dfc=2020-06-23&loc=5&sa=false&cb=o"));
+        startActivity(browserIntent);
     }
 }

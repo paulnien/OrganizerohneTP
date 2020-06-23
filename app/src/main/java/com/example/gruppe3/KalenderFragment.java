@@ -92,8 +92,6 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
         //TimePicker buttons
 
 
-
-
         //daily_handler
         final Switch swt_daily = (Switch) view.findViewById(R.id.swt_daily);
         swt_daily.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
@@ -139,6 +137,21 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
                 if(is_clickedDay)
                 {
                     calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, jahr, monat, tag, 14, 15, jahr, monat, tag, 14, 45, daily_isChecked, weekly_isChecked);
+                    //is_clickedDay=false;
+                    textfeld_titel.getText().clear();
+                    textfeldTerminbeschreibung.getText().clear();
+                    textfeldTerminort.getText().clear();
+                    swt_daily.setChecked(false);
+                    swt_weekly.setChecked(false);
+                }
+                else
+                {
+                    Calendar c = Calendar.getInstance();
+                    int year = c.get(Calendar.YEAR);
+                    int month = c.get(Calendar.MONTH);
+                    int date = c.get(Calendar.DATE);
+
+                    calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, year, (month+1), date, 14, 15, year, (month+1), date, 14, 45, daily_isChecked, weekly_isChecked);
                     is_clickedDay=false;
                     textfeld_titel.getText().clear();
                     textfeldTerminbeschreibung.getText().clear();
