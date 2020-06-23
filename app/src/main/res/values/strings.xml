@@ -29,6 +29,8 @@
     <string name="TextGanztaegig">Ganztägig</string>
     <string name="TextWoechentlich">Wöchentlich</string>
     <string name="Ganztaegig">Ganztägig</string>
-    <string name="Zeit_Anfang">Anfang</string>
-    <string name="Zeit_Ende">Ende</string>
+    <string name="Zeit_Anfang_HH">Anfang HH</string>
+    <string name="Zeit_Anfang_MM">Anfang MM</string>
+    <string name="Zeit_Ende_HH">Ende HH</string>
+    <string name="Zeit_Ende_MM">Ende MM</string>
 </resources>
