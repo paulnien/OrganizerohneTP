@@ -15,12 +15,16 @@
 
     <item
         android:id="@+id/link1"
-        android:title="@string/link1" />
+        android:title="@string/link1"
+        android:onClick="open_WHS"
+        />
 
     <item
         android:id="@+id/link2"
         android:title="@string/link2"
         android:clickable="true"
-        android:autoLink="web"/>
+        android:autoLink="web"
+        android:onClick="open_Google"
+        />
 
 </menu>
