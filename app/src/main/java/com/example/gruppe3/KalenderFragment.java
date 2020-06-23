@@ -32,6 +32,12 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
     EditText textfeld_titel;
     EditText textfeldTerminbeschreibung;
     EditText textfeldTerminort;
+
+    EditText tf_startHH;
+    EditText tf_startMM;
+    EditText tf_endeHH;
+    EditText tf_endeMM;
+
     CalendarView calendarView;
     Switch swt_daily;
     Switch swt_weekly;
@@ -74,6 +80,11 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
         textfeld_titel =(EditText)view.findViewById(R.id.textfeld_titel);
         textfeldTerminbeschreibung =(EditText)view.findViewById(R.id.textfeldTerminbeschreibung);
         textfeldTerminort =(EditText)view.findViewById(R.id.textfeldTerminort);
+
+        tf_startHH =(EditText)view.findViewById(R.id.tf_startHH);
+        tf_startMM =(EditText)view.findViewById(R.id.tf_startMM);
+        tf_endeHH =(EditText)view.findViewById(R.id.tf_end_HH);
+        tf_endeMM =(EditText)view.findViewById(R.id.tf_endeMM);
         //CalendarView
 
         calendarView=(CalendarView) view.findViewById(R.id.calendarView);
@@ -136,7 +147,11 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
             {
                 if(is_clickedDay)
                 {
-                    calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, jahr, monat, tag, 14, 15, jahr, monat, tag, 14, 45, daily_isChecked, weekly_isChecked);
+                    Log.d("Variablen Zeit: ","   anfHH: "+tf_startHH.getText().toString()+" stMM: "+tf_startMM.getText().toString()+" endeHH: "+tf_endeHH.getText().toString()+" endeMM: "+tf_endeMM.getText().toString());
+                    calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, jahr, monat, tag, Integer.parseInt(tf_startHH.getText().toString()), Integer.parseInt(tf_startMM.getText().toString()), jahr, monat, tag, Integer.parseInt(tf_endeHH.getText().toString()), Integer.parseInt(tf_endeMM.getText().toString()), daily_isChecked, weekly_isChecked);
+
+                    //calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, jahr, monat, tag, 12, 15, jahr, monat, tag, 13, 15, daily_isChecked, weekly_isChecked);
+
                     //is_clickedDay=false;
                     textfeld_titel.getText().clear();
                     textfeldTerminbeschreibung.getText().clear();
@@ -151,7 +166,7 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
                     int month = c.get(Calendar.MONTH);
                     int date = c.get(Calendar.DATE);
 
-                    calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, year, (month+1), date, 14, 15, year, (month+1), date, 14, 45, daily_isChecked, weekly_isChecked);
+                    calendar_input(textfeld_titel.getText().toString(), textfeldTerminbeschreibung.getText().toString(), textfeldTerminort.getText().toString(), "America/Los_Angeles", 1 /*muss angepasst werden!!!*/, jahr, monat, tag, Integer.parseInt(tf_startHH.getText().toString()), Integer.parseInt(tf_startMM.getText().toString()), jahr, monat, tag, Integer.parseInt(tf_endeHH.getText().toString()), Integer.parseInt(tf_endeMM.getText().toString()), daily_isChecked, weekly_isChecked);
                     is_clickedDay=false;
                     textfeld_titel.getText().clear();
                     textfeldTerminbeschreibung.getText().clear();
