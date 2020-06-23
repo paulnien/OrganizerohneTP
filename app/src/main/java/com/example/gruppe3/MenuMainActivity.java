@@ -1,5 +1,6 @@
 package com.example.gruppe3;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,20 +19,19 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MenuMainActivity extends AppCompatActivity
 {
+    @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.menu.menu_main);
-        // Toolbar toolbar = findViewById(R.id.toolbar);
-        // setSupportActionBar(toolbar);
-
         findViewById(R.id.link1).setOnClickListener(new View.OnClickListener()
         {
             @Override
             public void onClick(View view)
             {
-                clicked_btn("http://www.w-hs.de");
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.akafoe.de/gastronomie/speiseplaene-der-mensen/wh-bocholt/"));
+                startActivity(browserIntent);
             }
         });
 
@@ -40,15 +40,9 @@ public class MenuMainActivity extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                clicked_btn("http://www.google.de");
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.akafoe.de/gastronomie/speiseplaene-der-mensen/wh-bocholt/"));
+                startActivity(browserIntent);
             }
         });
-    }
-    public void clicked_btn(String url)
-    {
-        Intent intent=new Intent(Intent.ACTION_VIEW);
-        intent.setData(Uri.parse(url));
-        intent.setPackage("com.android.chrome");
-        startActivity(intent);
     }
 }
