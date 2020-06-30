@@ -211,6 +211,11 @@ public class KalenderFragment extends Fragment implements TimePickerDialog.OnTim
         }
         endMillis = endTime.getTimeInMillis();
 
+
+
+
+
+
         ContentResolver cr = getContext().getContentResolver();
         ContentValues values = new ContentValues();
         values.put(CalendarContract.Events.DTSTART, startMillis);
